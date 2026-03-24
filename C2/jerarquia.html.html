@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Martín de la Caridad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">DECANATO<span> IV</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#identidad">Identidad</a></li>
+            <li><a href="#sedes">Capillas</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#jerarquia">Jerarquía</a></li>
+            <!-- <li><a href="#donar" class="btn-nav">Donar</a></li> -->
+        </ul>
+    </nav>
+
+    
+<section id="jerarquia" class="nosotros-section">
+        <div class="section-title">
+        <span>COMUNIÓN Y JERARQUÍA</span>
+        <h2>Conoce más sobre nosotros</h2>
+        <div class="divider"></div>
+    </div>
+
+    <div class="tabs-container">
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="openTab(event, 'papa')">Papa León XIV</button>
+            <button class="tab-btn" onclick="openTab(event, 'obispo')">Nuestro Obispo</button>
+        </div>
+
+        <div id="papa" class="tab-content active">
+            <div class="biografia-flex">
+                <div class="bio-img"><img src="papa-leo-xiv.jpg" alt="Papa León XIV"></div>
+                <div class="bio-text">
+                    <span class="tag">Santo Padre</span>
+                    <h3>Papa León XIV</h3>
+                    <p>León XIV (Robert Francis Prevost), elegido el 8 de mayo de 2025, es el primer papa estadounidense y peruano, un agustino moderado que prioriza la sinodalidad y el diálogo. </p>
+                    <a href="https://www.vaticannews.va/es/papa/news/2025-05/robert-francis-prevost-la-biografia-del-nuevo-papa.html" class="btn-leer">Leer Biografía Completa</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="obispo" class="tab-content">
+            <div class="biografia-flex">
+                <div class="bio-img"><img src="mons-carlos-garcia.png" alt="Obispo de Lurín"></div>
+                <div class="bio-text">
+                    <span class="tag">Obispo de la Diócesis de Lurín</span>
+                    <h3>Mons. Carlos Enrique García Camader</h3>
+                    <p>Nuestro pastor guía la Diócesis de Lurín con dedicación, impulsando la evangelización y la solidaridad en todo el Cono Sur.</p>
+                    <a href="https://www.diocesisdelurin.org/#!/-nuestro-obispo/" class="btn-leer">Conocer su Trayectoria</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<a href="https://facebook.com/parroquiasanmartindelacaridadves" class="social-float facebook" target="_blank">
+    <!-- Facebook -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9v-3h2.5V9.4c0-2.5 
+        1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 
+        1.5V12h2.8l-.4 3h-2.4v7A10 10 0 0 0 22 12z"/>
+    </svg>
+</a>
+
+<a href="https://wa.me/51999999999" class="social-float whatsapp" target="_blank">
+    <!-- WhatsApp -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.9.5 3.68 1.38 5.22L2 22l4.93-1.32A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 
+        10-10S17.52 2 12 2zm0 18c-1.61 0-3.14-.47-4.44-1.28l-.32-.2-2.93.78.78-2.86-.21-.33A7.96 
+        7.96 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.27-5.73c-.23-.11-1.36-.67-1.57-.75-.21-.08-.36-.11-.51.11-.15.23-.59.75-.72.9-.13.15-.26.17-.49.06-.23-.11-.97-.36-1.85-1.14-.68-.6-1.14-1.34-1.27-1.57-.13-.23-.01-.35.1-.46.1-.1.23-.26.34-.38.11-.13.15-.23.23-.38.08-.15.04-.28-.02-.38-.06-.11-.51-1.23-.7-1.69-.19-.46-.38-.4-.51-.4h-.44c-.15 0-.38.06-.58.28-.2.23-.77.75-.77 1.83 0 1.08.79 2.12.9 2.27.11.15 1.56 2.38 3.78 3.34.53.23.95.37 1.28.47.54.17 1.03.15 1.42.09.43-.06 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.06-.1-.21-.15-.44-.26z"/>
+    </svg>
+</a>
+
+
+
+<a href="https://instagram.com/tu-perfil" class="social-float instagram" target="_blank">
+    <!-- Instagram -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 
+        2.24 5 5 5h10c2.76 0 5-2.24 
+        5-5V7c0-2.76-2.24-5-5-5H7zm5 
+        5a5 5 0 1 1 0 10 5 5 0 0 1 
+        0-10zm6.5-.75a1.25 1.25 0 1 
+        1-2.5 0 1.25 1.25 0 0 1 
+        2.5 0z"/>
+    </svg>
+</a>
+
+<a href="https://youtube.com/tu-canal" class="social-float youtube" target="_blank">
+    <!-- YouTube -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 
+        3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 
+        3 0 0 0 .5 6.2 31.6 31.6 0 0 0 
+        0 12a31.6 31.6 0 0 0 .5 5.8 3 
+        3 0 0 0 2.1 2.1C4.4 20.5 12 
+        20.5 12 20.5s7.6 0 9.4-.6a3 
+        3 0 0 0 2.1-2.1A31.6 31.6 0 0 
+        0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.75 
+        15.5v-7l6.5 3.5-6.5 3.5z"/>
+    </svg>
+</a> 
+    <!-- <section id="donar" class="donation-cta">
+        <div class="cta-inner">
+            <h2>Sostén nuestra misión en el mundo</h2>
+            <p>Tu contribución apoya directamente a nuestras comunidades y obras de caridad internacionales.</p>
+            <a href="#" class="btn-gold">Hacer una Donación Online</a>
+        </div>
+    </section> -->
+
+ <footer class="footer-minimal-pro">
+    <div class="footer-wrap">
+        <div class="footer-main">
+            <div class="brand-section">
+                <h2 class="footer-logo-big">SMC<span>VES</span></h2>
+                <p class="brand-desc">Parroquia San Martín de la Caridad. <br>Unidos en la fe, fortalecidos en la caridad.</p>
+            </div>
+            
+            <div class="links-section">
+                <div class="link-group">
+                    <h5>Comunidad</h5>
+                    <a href="#">Historia</a>
+                    <a href="#">Sacerdotes</a>
+                    <a href="#">Capillas</a>
+                </div>
+                <div class="link-group">
+                    <h5>Ayuda</h5>
+                    <a href="#">Martincitos</a>
+                    <a href="#">Nutrivida</a>
+                    <!-- <a href="#">Donar</a> -->
+                </div>
+                <div class="link-group">
+                    <h5>Social</h5>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+ 
+
+        <div class="footer-copy">
+            <span>© 2026 Sector 3, Villa El Salvador</span>
+            <span>DIÓCESIS DE LURÍN</span>
+        </div>
+    </div>
+</footer> 
+<script>
+  const track = document.querySelector('.carousel-track');
+  // Esto duplica el contenido internamente solo al cargar la página
+  track.innerHTML += track.innerHTML;
+</script>
+<script>
+    const tickerList = document.getElementById('ticker-v-list');
+    const tickerItems = tickerList.getElementsByTagName('li');
+    const itemHeight = 70; // Debe coincidir con la altura del CSS
+    let currentIdx = 0;
+
+    function startTicker() {
+        setInterval(() => {
+            currentIdx++;
+            
+            // Si llegamos al final, reiniciamos suavemente
+            if (currentIdx >= tickerItems.length) {
+                currentIdx = 0;
+            }
+            
+            const offset = currentIdx * -itemHeight;
+            tickerList.style.transform = `translateY(${offset}px)`;
+        }, 3000); // 3 segundos
+    }
+
+    // Iniciar cuando la página cargue
+    window.addEventListener('load', startTicker);
+    function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+</script>
+</body>
+</html>

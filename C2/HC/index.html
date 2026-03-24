@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermanas Corazonistas | Sagrado Corazón de Jesús</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --beige-principal: #EDE8D0; 
+            --rojo-corazon: #8B0000;    
+            --dorado-suave: #C5A059;
+            --texto-oscuro: #4A443F;
+            --blanco-puro: #FFFFFF;
+            --dark: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--beige-principal);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVBAR ORIGINAL --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo { color: var(--dark); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 1rem; }
+        .logo span { color: var(--rojo-corazon); }
+        .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: var(--dark); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--rojo-corazon); }
+        .btn-nav { background: var(--rojo-corazon); color: var(--blanco-puro) !important; padding: 8px 18px; border-radius: 4px; }
+
+        /* --- HERO CON EFECTO SLIDER Y TYPEWRITER --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: imageFade 25s infinite;
+        }
+
+        /* Imágenes del Slider */
+        .slide:nth-child(1) { background-image: url('img/image4.png'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('img/image2.png'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url('img/image3.png'); animation-delay: 10s; }
+        .slide:nth-child(4) { background-image: url('img/image4.png'); animation-delay: 15s; }
+        .slide:nth-child(5) { background-image: url('https://images.unsplash.com/photo-1444858291040-58afa7f39e3f?auto=format&fit=crop&q=80'); animation-delay: 20s; }
+
+        @keyframes imageFade {
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            20% { opacity: 1; }
+            25% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(237, 232, 208, 0.6); /* Tinte beige sobre el slider */
+            z-index: -1;
+        }
+
+        .typewriter h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 7vw, 4rem); /* Puedes bajar el 4rem si quieres, pero con esto está bien */
+            color: var(--rojo-corazon);
+            
+            /* CAMBIOS AQUÍ */
+            white-space: normal; /* Permite que el texto se rompa en varias líneas */
+            border-right: none;   /* Opcional: Quita la barra de escribir, que se ve rara en multilínea */
+            width: auto;         /* Deja que el navegador maneje el ancho */
+            max-width: 90%;       /* Para que no toque los bordes de la pantalla */
+            /* ------------ */
+            
+            margin: 0 auto 20px;
+            font-style: italic;
+            
+            /* Opcional: También puedes quitar o comentar la animación si se ve rara */
+            animation: none; /* Desactiva la animación por completo, es más seguro */
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--dorado-suave) } }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 700px;
+            margin-bottom: 35px;
+            color: var(--texto-oscuro);
+            font-weight: 600;
+        }
+
+        .btn-primary { 
+            background: var(--rojo-corazon); 
+            color: var(--blanco-puro); 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            border-radius: 4px; 
+            transition: 0.3s; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+        }
+
+        /* --- SECCIÓN MISIÓN --- */
+        .mision {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: var(--blanco-puro);
+        }
+
+        .mision h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--rojo-corazon); margin-bottom: 20px; }
+        .mision-img img { width: 100%; border-radius: 8px; border: 15px solid var(--beige-principal); }
+
+        /* --- OBRAS --- */
+        .obras { padding: 80px 10%; text-align: center; background: #F8F6F0; }
+        .grid-obras { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card-obra { background: var(--blanco-puro); padding: 40px; border-top: 4px solid var(--dorado-suave); transition: 0.3s; border-radius: 4px; }
+        .card-obra h3 { color: var(--rojo-corazon); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+
+        /* --- FOOTER ORIGINAL --- */
+        .footer-minimal-pro { background: #4E4E4E; padding: 100px 5% 40px; color: #eaeaea; border-top: 1px solid #eaeaea; }
+        .footer-wrap { max-width: 1200px; margin: 0 auto; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 50px; margin-bottom: 80px; }
+        .footer-logo-big { font-size: 3.5rem; font-weight: 900; color: #FFFFFF; }
+        .brand-desc { max-width: 300px; color: #eaeaea; font-size: 0.95rem; }
+        .links-section { display: flex; gap: 80px; flex-wrap: wrap; }
+        .link-group h5 { font-size: 0.75rem; text-transform: uppercase; color: #FFFFFF; margin-bottom: 25px; }
+        .link-group a { display: block; text-decoration: none; color: #FFFFFF; margin-bottom: 12px; transition: 0.2s; }
+        .link-group a:hover { color: var(--dorado-suave); }
+        .footer-copy { display: flex; justify-content: space-between; font-size: 0.8rem; border-top: 1px solid #FFFFFF; padding-top: 30px; }
+
+        @media (max-width: 768px) {
+            .mision { grid-template-columns: 1fr; text-align: center; }
+            .nav-links { display: none; }
+            .typewriter h1 { white-space: normal; border: none; animation: none; }
+        }
+        /* --- ESTILOS SECCIÓN HISTORIA --- */
+.history { 
+    padding: 120px 10%; 
+    background-color: var(--beige-principal); 
+    display: flex;
+    justify-content: center;
+}
+
+.history-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; 
+    align-items: center; 
+    max-width: 1200px;
+}
+
+.year-tag { 
+    display: inline-block; 
+    background: var(--rojo-corazon); 
+    color: white; 
+    padding: 6px 18px; 
+    border-radius: 50px; 
+    font-size: 0.8rem; 
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.history-text h2 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(2rem, 4vw, 3rem); 
+    color: var(--rojo-corazon); 
+    margin-bottom: 25px; 
+    line-height: 1.2;
+}
+
+.history-text p { 
+    margin-bottom: 20px; 
+    font-size: 1.05rem; 
+    color: var(--texto-oscuro); 
+}
+
+.history-img .img-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+/* El cuadro rojo decorativo detrás de la foto */
+.history-img .img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    border: 8px solid var(--rojo-corazon);
+    z-index: 0;
+}
+
+.history-img img { 
+    width: 100%; 
+    height: auto; 
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.1);
+}
+
+/* --- ESTILOS SECCIÓN FRASE --- */
+.quote-section { 
+    padding: 140px 10%; 
+    background: linear-gradient(rgba(139, 0, 0, 0.92), rgba(139, 0, 0, 0.92)), 
+                url('https://images.unsplash.com/photo-1515023115689-589c39d5583f?q=80');
+    background-attachment: fixed; /* Efecto Parallax */
+    background-size: cover;
+    background-position: center;
+    color: var(--blanco-puro);
+    text-align: center;
+}
+
+.quote-content { max-width: 900px; margin: 0 auto; }
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    line-height: 0;
+    display: block;
+    margin-bottom: 40px;
+    color: var(--dorado-suave);
+    opacity: 0.6;
+}
+
+.quote-section blockquote { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(1.8rem, 5vw, 2.8rem); 
+    font-style: italic; 
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.quote-section cite { 
+    display: block; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    font-weight: 600; 
+    color: var(--dorado-suave);
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .history-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .history-img .img-wrapper::before { display: none; }
+    .quote-section { padding: 80px 5%; }
+}
+
+.pilares-section {
+    padding: 100px 10%;
+    background-color: var(--blanco-puro);
+    text-align: center;
+}
+
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.pilar-card {
+    padding: 30px;
+    border: 1px solid #f0efeb;
+    transition: all 0.4s ease;
+    border-radius: 2px; /* Estilo minimalista */
+}
+
+.pilar-card:hover {
+    background: #fdfcf7;
+    border-color: var(--dorado-suave);
+    transform: translateY(-5px);
+}
+
+.pilar-card i {
+    font-size: 2.5rem;
+    color: var(--dorado-suave);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.pilar-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--rojo-corazon);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pilar-card p {
+    font-size: 0.95rem;
+    color: var(--texto-oscuro);
+    line-height: 1.7;
+}
+
+.divider-flower {
+    font-size: 1.5rem;
+    color: var(--dorado-suave);
+    margin: 20px 0;
+}
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">HERMANAS <span>Corazonistas</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="#identidad">IDENTIDAD</a></li>
+            <li><a href="#sedes">CAPILLAS</a></li>
+            <li><a href="#servicios">SERVICIOS</a></li>
+            <li><a href="#agenda">AGENDA</a></li>
+            <li><a href="jerarquia.html">JERARQUIA</a></li>
+            <li><a href="jerarquia.html">CONTACTO</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <div class="hero-slider">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div> 
+            <div class="slide"></div> 
+        </div>
+        <div class="hero-overlay"></div>
+
+        <span style="color: var(--rojo-corazon); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">Congregación de las</span>
+        <div class="typewriter">
+            <h1>Hermanas de la Caridad del Sagrado Corazón de Jesús</h1>
+        </div>
+        <p>Llevando el amor misericordioso del Sagrado Corazón de Jesús a los más necesitados a través de la caridad y la oración.</p>
+        <div class="hero-btns">
+            <a href="#identidad" class="btn-primary">CONOCER NUESTRA OBRA</a>
+        </div>
+    </header>
+
+    <section class="mision" id="identidad">
+        <div class="mision-img">
+            <img src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&q=80" alt="Hermanas">
+        </div>
+        <div class="mision-content">
+            <span style="color: var(--dorado-suave); font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Nuestro Carisma</span>
+            <h2>Vivir para amar y servir</h2>
+            <p>Como Hermanas Corazonistas del Sagrado Corazón de Jesús, nuestra vida es un testimonio de entrega. Buscamos ser el reflejo de la ternura de Dios en el mundo.</p>
+            <p>Trabajamos en educación, salud y asistencia social, siempre con el corazón abierto para acoger a quien más sufre.</p>
+        </div>
+    </section>
+
+        <section class="quote-section">
+            <div class="quote-content">
+                <span class="quote-icon">“</span>
+                <blockquote>Habiendo unión entre vosotras, Cristo,nuestro esposo estará en medio</blockquote>
+                <cite>— Madre Isabel Larrañaga</cite>
+            </div>
+        </section> 
+        <section class="pilares-section" id="identidad-profunda">
+    <span style="color: var(--dorado-suave); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px;">Nuestra Esencia</span>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--rojo-corazon); margin-top: 10px;">Fundamentos de nuestra Vida</h2>
+    <div class="divider-flower">✦</div>
+    
+    <div class="pilares-grid">
+        <div class="pilar-card">
+            <h3>Contemplación</h3>
+            <p>No somos solo acción; todo nace de la oración. Buscamos en el silencio del Sagrado Corazón la fuerza para amar al prójimo sin medida.</p>
+        </div>
+
+        <div class="pilar-card">
+            <h3>Fraternidad</h3>
+            <p>Vivimos en comunidad como una familia. Creemos que el testimonio de unión entre nosotras es el primer paso para evangelizar al mundo.</p>
+        </div>
+
+        <div class="pilar-card">
+            <h3>Reparación</h3>
+            <p>Nuestra vida busca consolar el Corazón de Jesús a través de actos de bondad, sanando las heridas de la sociedad con ternura y humildad.</p>
+        </div>
+    </div>
+</section>
+
+    <section class="history" id="historia">
+    <div class="history-grid">
+        <div class="history-text">
+            <span class="year-tag">Desde 1926</span>
+            <h2>Un legado de fe y perseverancia</h2>
+            <p>Nuestra historia comienza con un pequeño grupo de mujeres valientes que decidieron seguir las huellas del Corazón de Jesús. Lo que empezó en una pequeña capilla, hoy es una red de amor que alcanza a miles.</p>
+            <p>En <strong>Villa El Salvador</strong>, nuestra presencia ha sido un faro de luz durante décadas, acompañando el crecimiento de las familias y la formación de nuevas generaciones.</p>
+        </div>
+        <div class="history-img">
+            <div class="img-wrapper">
+                <img src="img/image3.png" alt="Nuestra Historia">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="footer-minimal-pro">
+        <div class="footer-wrap">
+            <div class="footer-main">
+                <div class="brand-section">
+                    <h2 class="footer-logo-big">SMC<span>VES</span></h2>
+                    <p class="brand-desc">Parroquia San Martín de la Caridad. <br>Unidos en la fe, fortalecidos en la caridad.</p>
+                </div>
+                
+                <div class="links-section">
+                    <div class="link-group">
+                        <h5>Comunidad</h5>
+                        <a href="#">Historia</a>
+                        <a href="#">Sacerdotes</a>
+                        <a href="#">Capillas</a>
+                    </div>
+                    <div class="link-group">
+                        <h5>Ayuda</h5>
+                        <a href="#">Martincitos</a>
+                        <a href="#">Nutrivida</a>
+                    </div>
+                    <div class="link-group">
+                        <h5>Social</h5>
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copy" id="contacto">
+                <span>© 2026 Sector 3, Villa El Salvador</span>
+                <span>DIÓCESIS DE LURÍN</span>
+            </div>
+        </div>
+    </footer> 
+</body>
+</html>

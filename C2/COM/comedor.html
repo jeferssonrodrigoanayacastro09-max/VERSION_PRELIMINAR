@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comedor Parroquial | Obra Social</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. VARIABLES LUMINOSAS */
+        :root {
+            --gold: #D4AF37;
+            --dark: #333333;
+            --white: #FFFFFF;
+            --bg-crema: #FDFCF9;
+            --text-gray: #666666;
+            --azul-claro: #E6EEF7;
+            --azul-footer: #1E3A5F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            /* CAMBIO A POPPINS */
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-crema);
+            color: var(--dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* 2. NAVBAR LUMINOSA */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo { 
+            color: var(--dark); 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+        .logo span { color: var(--gold); }
+
+        .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
+        .nav-links a { 
+            color: var(--dark); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            transition: 0.3s; 
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        .btn-nav { 
+            background: var(--gold); 
+            color: var(--white) !important; 
+            padding: 8px 18px; 
+            border-radius: 4px; 
+        }
+
+        /* 3. HERO PANTALLA COMPLETA CON SLIDER */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: imageFade 15s infinite;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.65);
+            z-index: -1;
+        }
+
+        /* IMÁGENES DEL SLIDER */
+        .slide:nth-child(1) { background-image: url('img/image8.png'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('img/image7.png'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url('img/image6.png'); animation-delay: 10s; }
+
+        @keyframes imageFade {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            33% { opacity: 1; }
+            43% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* EFECTO MÁQUINA DE ESCRIBIR */
+        .typewriter { display: inline-block; }
+
+        .typewriter h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            color: var(--dark);
+            overflow: hidden;
+            border-right: .15em solid var(--gold);
+            white-space: nowrap;
+            margin: 0 auto 20px;
+            letter-spacing: .05em;
+            animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--gold) } }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 700px;
+            margin-bottom: 35px;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-primary { background: var(--gold); color: var(--white); padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-secondary { border: 2px solid var(--gold); color: var(--gold); padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-primary:hover { background: #b8952e; transform: translateY(-3px); }
+        .btn-secondary:hover { background: var(--gold); color: white; transform: translateY(-3px); }
+
+        /* 4. SECCIONES DE CONTENIDO */
+        .mision-hero {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .mision-hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--azul-footer);
+            margin-bottom: 20px;
+        }
+
+        .mision-hero p { font-size: 1rem; color: var(--text-gray); }
+
+        .intro-img img { 
+            width: 100%; 
+            border-radius: 8px; 
+            box-shadow: 15px 15px 0 var(--gold); 
+        }
+
+        .info-split { display: flex; flex-wrap: wrap; background: #fff; border-top: 1px solid #eee; }
+        .info-image { flex: 1; min-width: 50%; min-height: 450px; background: url('https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&q=80') center/cover; }
+        .info-content { flex: 1; min-width: 50%; padding: 80px 8%; }
+        
+        .horario-card {
+            border-left: 4px solid var(--gold);
+            padding: 15px 25px;
+            margin-top: 30px;
+            background: var(--bg-crema);
+            border-radius: 0 8px 8px 0;
+        }
+        .horario-card strong { display: block; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 5px; font-size: 0.8rem; text-transform: uppercase; }
+        .horario-card p { font-weight: 600; font-size: 1.1rem; }
+
+        .stats-section {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .stat-box h2 { font-size: 3.5rem; font-weight: 800; color: var(--gold); margin: 0; }
+        .stat-box p { font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-gray); }
+.ayuda-footer {
+    background: var(--bg-crema); /* Fondo crema para que no desentone */
+    color: var(--dark);
+    padding: 100px 10%;
+    text-align: center;
+    border-top: 1px solid #eee; /* Línea sutil de separación */
+}
+         
+#ayuda::before { 
+    content: ""; 
+    display: block; 
+    height: 80px; 
+    margin-top: -80px; 
+    visibility: hidden; 
+}
+        .ayuda-footer p {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+.ayuda-footer h2 {
+    color: var(--azul-footer); /* Título en azul oscuro para elegancia */
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+        .lista-viveres {
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+    margin: 40px 0;
+}
+
+        .item-viveres {
+    background: var(--white);
+    color: var(--dark);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--gold); /* Borde dorado para resaltar */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+}
+
+
+
+        .btn-donar {
+    background: var(--azul-footer);
+    color: var(--white);
+    padding: 20px 50px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+
+        .btn-donar:hover {
+    background: var(--gold); /* Cambio a dorado al pasar el mouse */
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}   
+
+        @media (max-width: 768px) {
+            .mision-hero { grid-template-columns: 1fr; text-align: center; }
+            .intro-img { order: -1; }
+            .info-split { flex-direction: column-reverse; }
+            .typewriter h1 { white-space: normal; border: none; animation: none; }
+        }
+         /* FOOTER (MANTENIDO) */
+        .footer-minimal-pro {
+            background: #4E4E4E; 
+            padding: 100px 5% 40px;
+            color: #eaeaea;
+            border-top: 1px solid #eaeaea;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-wrap { max-width: 1200px; margin: 0 auto; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 50px; margin-bottom: 80px; }
+        .footer-logo-big { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 20px; color: #FFFFFF; }
+        .footer-logo-big span { color: #FFFFFF; }
+        .brand-desc { max-width: 300px; color: #eaeaea; font-size: 0.95rem; line-height: 1.6; }
+        .links-section { display: flex; gap: 80px; flex-wrap: wrap; }
+        .link-group h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #FFFFFF; margin-bottom: 25px; }
+        .link-group a { display: block; text-decoration: none; color: #FFFFFF; font-size: 1rem; margin-bottom: 12px; font-weight: 500; transition: 0.2s; }
+        .link-group a:hover { color: #9AB973; }
+        .footer-copy { display: flex; justify-content: space-between; font-size: 0.8rem; color: #FFFFFF; border-top: 1px solid #FFFFFF; padding-top: 30px; font-weight: 600; }
+
+        @media (max-width: 768px) {
+            .footer-main { flex-direction: column; }
+            .links-section { gap: 40px; }
+            .footer-copy { flex-direction: column; gap: 10px; text-align: center; }
+        }   
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">COMEDOR <span>PARROQUIAL</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="#identidad">Identidad</a></li>
+            <li><a href="#sedes">Capillas</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="jerarquia.html">Jerarquía</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-slider">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <span style="color: var(--gold); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">Obra Social</span>
+        <div class="typewriter">
+            <h1>Comedor San Martín de Porras</h1>
+        </div>
+        <p>Acompañamos a las familias de nuestra comunidad brindando un plato de comida caliente y esperanza cada día.</p>
+        <div class="hero-btns">
+            <a href="#ayuda" class="btn-primary">QUIERO AYUDAR</a>
+            <a href="#info" class="btn-secondary">SABER MÁS</a>
+        </div>
+    </header>
+
+    <section class="mision-hero" id="info">
+        <div class="intro-text">
+            <span style="color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Nuestra Misión</span>
+            <h2>Servir con dignidad</h2>
+            <p>Nuestra misión es garantizar que ninguna familia de nuestra comunidad pase hambre, brindando platos nutritivos con el respeto y la calidez que todo hijo de Dios merece.</p>
+            <p style="margin-top: 15px;">Desde hace más de 10 años, el comedor es el corazón latente de nuestra parroquia.</p>
+        </div>
+        <div class="intro-img">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80" alt="Misión">
+        </div>
+    </section>
+
+    <section class="info-split">
+        <div class="info-image"></div>
+        <div class="info-content">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">¿Cómo funciona?</h2>
+            <div class="horario-card">
+                <strong>ATENCIÓN</strong>
+                <p>Lunes a Viernes — 12:30 PM a 2:00 PM</p>
+            </div>
+            <div class="horario-card">
+                <strong>UBICACIÓN</strong>
+                <p>Salón Parroquial (Puerta Lateral)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stat-box">
+            <h2>120+</h2>
+            <p>Raciones Diarias</p>
+        </div>
+        <div class="stat-box">
+            <h2>15</h2>
+            <p>Voluntarios</p>
+        </div>
+        <div class="stat-box">
+            <h2>10+</h2>
+            <p>Años de Servicio</p>
+        </div>
+    </section>
+<section class="ayuda-footer" id="ayuda">
+    <span style="color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Colabora con nosotros</span>
+    <h2>Súmate a nuestra mesa</h2>
+    <p style="font-weight: 300;">Recibimos donaciones de víveres secos y productos de higiene todos los días en el salón parroquial.</p>
+    
+   
+    
+    <a href="https://wa.me/tunúmero" class="btn-donar">HABLAR CON COORDINACIÓN</a>
+    
+</section>
+
+<footer class="footer-minimal-pro">
+    <div class="footer-wrap">
+        <div class="footer-main">
+            <div class="brand-section">
+                <h2 class="footer-logo-big">SMC<span>VES</span></h2>
+                <p class="brand-desc">Parroquia San Martín de la Caridad. <br>Unidos en la fe, fortalecidos en la caridad.</p>
+            </div>
+            
+            <div class="links-section">
+                <div class="link-group">
+                    <h5>Comunidad</h5>
+                    <a href="#">Historia</a>
+                    <a href="#">Sacerdotes</a>
+                    <a href="#">Capillas</a>
+                </div>
+                <div class="link-group">
+                    <h5>Ayuda</h5>
+                    <a href="#">Martincitos</a>
+                    <a href="#">Nutrivida</a>
+                </div>
+                <div class="link-group">
+                    <h5>Social</h5>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <span>© 2026 Sector 3, Villa El Salvador</span>
+            <span>DIÓCESIS DE LURÍN</span>
+        </div>
+    </div>
+</footer> 
+</body>
+</html>

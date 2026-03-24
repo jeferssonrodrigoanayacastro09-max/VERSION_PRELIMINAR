@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEAM Los Martincitos | Villa el Salvador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #333333;
+            --white: #FFFFFF;
+            --bg-crema: #FDFCF9;
+            --text-gray: #666666;
+            --azul-claro: #E6EEF7;
+            --azul-footer: #1E3A5F;
+            /* Color acento para Adulto Mayor: Un naranja suave y vital */
+            --accent-warm: #E67E22; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-crema);
+            color: var(--dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo { 
+            color: var(--dark); 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+        .logo span { color: var(--accent-warm); }
+
+        .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
+        .nav-links a { 
+            color: var(--dark); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            transition: 0.3s; 
+        }
+        .nav-links a:hover { color: var(--accent-warm); }
+
+        .btn-nav { 
+            background: var(--accent-warm); 
+            color: var(--white) !important; 
+            padding: 8px 18px; 
+            border-radius: 4px; 
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: imageFade 25s infinite;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: -1;
+        }
+
+        /* IMÁGENES DEL SLIDER (Representativas de Adultos Mayores) */
+        .slide:nth-child(1) { background-image: url('img/image1.png'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url('img/image2.png'); animation-delay: 10s; }
+        .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80'); animation-delay: 15s; }
+        .slide:nth-child(5) { background-image: url('img/image3.png'); animation-delay: 20s; }
+
+        @keyframes imageFade {
+                0% { opacity: 0; }
+                5% { opacity: 1; }  /* Aparece rápido */
+                20% { opacity: 1; } /* Se queda estática el 20% del tiempo (5s) */
+                25% { opacity: 0; } /* Desaparece */
+                100% { opacity: 0; }
+            }
+
+        .typewriter h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            color: var(--dark);
+            overflow: hidden;
+            border-right: .15em solid var(--accent-warm);
+            white-space: nowrap;
+            margin: 0 auto 20px;
+            letter-spacing: .02em;
+            animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent-warm) } }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: 700px;
+            margin-bottom: 35px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-primary { background: var(--accent-warm); color: var(--white); padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-secondary { border: 2px solid var(--accent-warm); color: var(--accent-warm); padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(230,126,34,0.3); }
+
+        /* MISION */
+        .mision-hero {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .mision-hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--azul-footer);
+            margin-bottom: 20px;
+        }
+
+        .intro-img img { 
+            width: 100%; 
+            border-radius: 8px; 
+            box-shadow: 15px 15px 0 var(--accent-warm); 
+        }
+
+        /* INFO SPLIT */
+        .info-split { display: flex; flex-wrap: wrap; background: #fff; border-top: 1px solid #eee; }
+        .info-image { flex: 1; min-width: 50%; min-height: 450px; background: url('img/image5.png') center/cover; }
+        .info-content { flex: 1; min-width: 50%; padding: 80px 8%; }
+        
+        .horario-card {
+            border-left: 4px solid var(--accent-warm);
+            padding: 15px 25px;
+            margin-top: 20px;
+            background: var(--bg-crema);
+            border-radius: 0 8px 8px 0;
+        }
+        .horario-card strong { display: block; letter-spacing: 1px; color: var(--accent-warm); margin-bottom: 5px; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* STATS */
+        .stats-section {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+            background: var(--white);
+        }
+        .stat-box h2 { font-size: 3.5rem; font-weight: 800; color: var(--accent-warm); margin: 0; }
+        .stat-box p { font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-gray); }
+
+        /* AYUDA */
+        .ayuda-footer {
+            background: var(--azul-claro);
+            color: var(--dark);
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .lista-viveres {
+            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 40px 0;
+        }
+        .item-viveres {
+            background: var(--white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+        }
+
+        .btn-donar {
+            background: var(--azul-footer);
+            color: var(--white);
+            padding: 20px 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .mision-hero { grid-template-columns: 1fr; text-align: center; }
+            .intro-img { order: -1; }
+            .info-split { flex-direction: column-reverse; }
+            .typewriter h1 { white-space: normal; border: none; animation: none; }
+        }
+        /* --- FOOTER MINIMAL PRO --- */
+
+        .footer-minimal-pro {
+            background: #4E4E4E; /* Fondo blanco editorial */
+            padding: 100px 5% 40px;
+            color: #eaeaea;
+            border-top: 1px solid #eaeaea;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        /* Tipografía del Logo SMCVES */
+        .footer-logo-big {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: #FFFFFF; /* Azul Litúrgico */
+        }
+
+        .footer-logo-big span {
+            color: #FFFFFF; /* Dorado */
+        }
+
+        .brand-desc {
+            max-width: 300px;
+            color: #eaeaea;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Secciones de enlaces (Comunidad, Ayuda, Social) */
+        .links-section {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .link-group h5 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+            margin-bottom: 25px;
+        }
+
+        .link-group a {
+            display: block;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .link-group a:hover {
+            color: #c5a059;
+        }
+
+        /* Línea final de Copyright */
+        .footer-copy {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #FFFFFF;
+            border-top: 1px solid #FFFFFF;
+            padding-top: 30px;
+            font-weight: 600;
+        }
+
+        /* Ajustes para Dispositivos Móviles */
+        @media (max-width: 768px) {
+            .footer-main { 
+                flex-direction: column; 
+            }
+            .links-section { 
+                gap: 40px; 
+            }
+            .footer-logo-big {
+                font-size: 2.5rem;
+            }
+            .footer-copy {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+        /* --- SECCIÓN AYUDA (REDISEÑADA) --- */
+.ayuda-footer {
+    background: var(--white); /* Fondo limpio */
+    padding: 120px 10%;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.ayuda-footer span.tagline {
+    color: var(--accent-warm);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.ayuda-footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--azul-footer);
+    margin-bottom: 20px;
+}
+
+.ayuda-footer p.subtext {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: var(--text-gray);
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+/* Lista de víveres estilo "Minimal Cards" */
+.lista-viveres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.item-viveres {
+    background: var(--bg-crema);
+    padding: 30px 20px;
+    border: 1px solid #f0efeb;
+    border-radius: 4px; /* Cuadrado sutil, no redondo */
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-viveres:hover {
+    border-color: var(--accent-warm);
+    transform: translateY(-5px);
+}
+
+.item-viveres i {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Botón estilizado */
+.btn-donar {
+    background: var(--accent-warm);
+    color: var(--white);
+    padding: 22px 50px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.2);
+}
+
+.btn-donar:hover {
+    background: var(--azul-footer);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(30, 58, 95, 0.2);
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PEAM <span>LOS MARTINCITOS</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="#identidad">Identidad</a></li>
+            <li><a href="#sedes">Capillas</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="jerarquia.html">Jerarquía</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <!-- <li><a href="#ayuda" class="btn-nav">Donar Ahora</a></li> -->
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-slider">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div> 
+            <div class="slide"></div> </div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <span style="color: var(--accent-warm); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">Villa el Salvador</span>
+        <div class="typewriter">
+            <h1>La Bendición de Caminar Juntos</h1>
+        </div>
+        <p>Un espacio de familia para los adultos mayores, donde la salud, el alimento y el cariño nunca faltan.</p>
+        <div class="hero-btns">
+            <a href="#ayuda" class="btn-primary">APOYAR EL PROGRAMA</a>
+            <a href="#info" class="btn-secondary">NUESTRA LABOR</a>
+        </div>
+    </header>
+
+    <section class="mision-hero" id="info">
+        <div class="intro-text">
+            <span style="color: var(--accent-warm); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Programa Especial</span>
+            <h2>Dignidad para nuestros abuelos</h2>
+            <p>El PEAM "Los Martincitos" nace para abrazar a los adultos mayores de Villa el Salvador en situación de vulnerabilidad, ofreciéndoles un refugio de paz y desarrollo.</p>
+            <p style="margin-top: 15px;">Brindamos atención integral que incluye alimentación balanceada, soporte psicológico y talleres de recreación.</p>
+        </div>
+        <div class="intro-img">
+            <img src="img/image4.png" alt="Los Martincitos">
+        </div>
+    </section>
+
+    <section class="info-split">
+        <div class="info-image"></div>
+        <div class="info-content">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Servicios Integrales</h2>
+            <div class="horario-card">
+                <strong>COMEDOR NUTRICIONAL</strong>
+                <p>Almuerzos diarios balanceados y nutritivos.</p>
+            </div>
+            <div class="horario-card">
+                <strong>SALUD Y BIENESTAR</strong>
+                <p>Monitoreo preventivo y ejercicios terapéuticos.</p>
+            </div>
+            <div class="horario-card">
+                <strong>TALLERES</strong>
+                <p>Manualidades, danza, memoria y alfabetización digital.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stat-box">
+            <h2>150+</h2>
+            <p>Adultos Atendidos</p>
+        </div>
+        <div class="stat-box">
+            <h2>3</h2>
+            <p>Áreas de Soporte</p>
+        </div>
+        <div class="stat-box">
+            <h2>20+</h2>
+            <p>Años de Historia</p>
+        </div>
+    </section><section class="ayuda-footer" id="ayuda">
+        <span class="tagline">Obra de Misericordia</span>
+        <h2>Dales una mano</h2>
+        <p class="subtext">Tu generosidad permite que sigamos entregando medicinas, alimentos y una vejez digna a nuestros abuelos.</p>
+        
+        <a href="https://wa.me/tunúmero" class="btn-donar">Contactar y Apoyar ↗</a>
+    </section>
+ <footer class="footer-minimal-pro">
+    <div class="footer-wrap">
+        <div class="footer-main">
+            <div class="brand-section">
+                <h2 class="footer-logo-big">SMC<span>VES</span></h2>
+                <p class="brand-desc">Parroquia San Martín de la Caridad. <br>Unidos en la fe, fortalecidos en la caridad.</p>
+            </div>
+            
+            <div class="links-section">
+                <div class="link-group">
+                    <h5>Comunidad</h5>
+                    <a href="#">Historia</a>
+                    <a href="#">Sacerdotes</a>
+                    <a href="#">Capillas</a>
+                </div>
+                <div class="link-group">
+                    <h5>Ayuda</h5>
+                    <a href="#">Martincitos</a>
+                    <a href="#">Nutrivida</a>
+                    <!-- <a href="#">Donar</a> -->
+                </div>
+                <div class="link-group">
+                    <h5>Social</h5>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+ 
+
+        <div class="footer-copy">
+            <span>© 2026 Sector 3, Villa El Salvador</span>
+            <span>DIÓCESIS DE LURÍN</span>
+        </div>
+    </div>
+</footer> 
+</body>
+</html>
